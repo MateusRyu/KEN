@@ -20,8 +20,7 @@ public class PresenterRouter {
                 case "0":
                     break;
                 case "1":
-                    // TODO
-                    System.out.println("Book search by title");
+                    API_PRESENTER.getBookByTitle();
                     break;
                 case "2":
                     // TODO
