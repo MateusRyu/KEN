@@ -5,8 +5,15 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.time.Duration;
 
 public class WebApiConnector {
+    private static Duration timeoutDuration;
+
+    public WebApiConnector(int timoutDuration) {
+        timeoutDuration = Duration.ofSeconds(30);
+    }
+
     public String getDataFromURL(String url) {
         HttpClient client = buildHttpClient();
         HttpRequest request = buildRequest(url);
@@ -22,11 +29,15 @@ public class WebApiConnector {
     }
 
     private HttpClient buildHttpClient() {
-        return HttpClient.newHttpClient();
+        return  HttpClient.newBuilder()
+                .connectTimeout(timeoutDuration)
+                .followRedirects(HttpClient.Redirect.ALWAYS)
+                .build();
     }
 
     private HttpRequest buildRequest(String url) {
         return HttpRequest.newBuilder()
+                .timeout(timeoutDuration)
                 .uri(URI.create(url))
                 .build();
     }
