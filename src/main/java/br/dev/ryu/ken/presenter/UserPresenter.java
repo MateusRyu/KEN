@@ -4,7 +4,7 @@ import br.dev.ryu.ken.model.Book;
 import br.dev.ryu.ken.service.IApiConsumer;
 import br.dev.ryu.ken.view.UserView;
 
-import java.util.Optional;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserPresenter {
@@ -24,7 +24,8 @@ public class UserPresenter {
     public void getBookByTitle() {
         System.out.println("What's the book's title?");
         String title = SCANNER.nextLine();
-        Optional<Book> book = API.getBookByTitle(title);
+        System.out.println("Searching..");
+        List<Book> book = API.getBookByTitle(title);
         System.out.println(book);
     }
 }
