@@ -1,4 +1,11 @@
 package br.dev.ryu.ken.model;
 
-public record PersonData(int birthYear, int deathYear, String name) {
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public record PersonData(
+        @JsonAlias("birth_year") int birthYear,
+        @JsonAlias("death_year") int deathYear,
+        String name) {
 }

@@ -1,6 +1,7 @@
 package br.dev.ryu.ken.presenter;
 
 import br.dev.ryu.ken.model.Book;
+import br.dev.ryu.ken.model.ListOfBooks;
 import br.dev.ryu.ken.service.IApiConsumer;
 import br.dev.ryu.ken.view.UserView;
 
@@ -25,7 +26,13 @@ public class UserPresenter {
         System.out.println("What's the book's title?");
         String title = SCANNER.nextLine();
         System.out.println("Searching..");
-        List<Book> book = API.getBookByTitle(title);
-        System.out.println(book);
+        ListOfBooks listOfBooks = API.getBooksByTitle(title);
+        System.out.println("Books found: " + listOfBooks.count());
+        System.out.println("Processing data..");
+
+        if (listOfBooks.count() > 0) {
+            List<Book> books = API.getBooksFromListOfBooks(listOfBooks);
+            books.forEach(System.out::println);
+        }
     }
 }
