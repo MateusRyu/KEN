@@ -20,25 +20,31 @@ public class PresenterRouter {
                 case "0":
                     break;
                 case "1":
-                    API_PRESENTER.getBookByTitle();
+                    API_PRESENTER.getAllBookByTitle();
                     break;
                 case "2":
-                    // TODO
-                    System.out.println("List of all books");
+                    API_PRESENTER.registerBookByTitle();
                     break;
                 case "3":
-                    // TODO
-                    System.out.println("List of authors");
+                    API_PRESENTER.registerBookById();
                     break;
                 case "4":
                     // TODO
-                    System.out.println("List living authors in a given year");
+                    System.out.println("List of all books");
                     break;
                 case "5":
                     // TODO
-                    System.out.println("Display the number of books in a given language");
+                    System.out.println("List of authors");
                     break;
                 case "6":
+                    // TODO
+                    System.out.println("List living authors in a given year");
+                    break;
+                case "7":
+                    // TODO
+                    System.out.println("Display the number of books in a given language");
+                    break;
+                case "8":
                     // TODO
                     System.out.println("List of living authors in a given year");
                     break;
