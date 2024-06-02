@@ -1,6 +1,7 @@
 package br.dev.ryu.ken.service;
 
 import br.dev.ryu.ken.model.Book;
+import br.dev.ryu.ken.model.BookData;
 import br.dev.ryu.ken.model.ListOfBooks;
 
 import java.net.URLEncoder;
@@ -37,5 +38,12 @@ public class GutendexConsumer implements IApiConsumer {
         }
 
         return books;
+    }
+
+    @Override
+    public BookData getBookById(String id) {
+        String url = URL + "/books/" + URLEncoder.encode(id, StandardCharsets.UTF_8);
+        String json = WEB_API_CONNECTOR.getDataFromURL(url);
+        return DATA_BINDER.bindJsonToClass(json, BookData.class);
     }
 }

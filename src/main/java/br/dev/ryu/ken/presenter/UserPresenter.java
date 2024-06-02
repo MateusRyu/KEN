@@ -59,7 +59,7 @@ public class UserPresenter {
         System.out.println("What's the book's ID?");
         String title = SCANNER.nextLine();
         System.out.println("Searching..");
-        Book book = new Book(API.getBooksById(title));
+        Book book = new Book(API.getBookById(title));
         boolean confirm = VIEW.confirm("Want to register " + book + "?");
         registerBook(confirm, book);
     }
