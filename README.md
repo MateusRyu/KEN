@@ -16,6 +16,14 @@ a database. The main skills tested in this challenge were:
 
 ## Features
 
+- [X] Search books by title;
+- [X] Get book metadata by title;
+- [X] Get book metadata by ID;
+- [ ] Register book by title;
+- [ ] Register book by ID;
+- [ ] List registered books metadata;
+- [ ] List registered authors metadata;
+- [ ] Select languages;
 
 ## Technologies
 
